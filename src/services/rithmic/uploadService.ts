@@ -9,7 +9,15 @@ import { normalizeRemoteDir, resolveRemoteDirectory } from "./sftpRemotePaths";
 import { withSftpClient } from "./sftpClient";
 
 function resolveRemoteTarget(operationType: UploadRequest["operationType"]): string {
-  if (operationType === "add_user" || operationType === "add_account") {
+  // Conformance mapping (per client requirement):
+  // - User/account creation uses coperations
+  // - set_rms_account uses in_flight
+  // - set_rms_product uses coperations
+  if (
+    operationType === "add_user" ||
+    operationType === "add_account" ||
+    operationType === "set_rms_product"
+  ) {
     return normalizeRemoteDir(env.RITHMIC_REMOTE_COPERATIONS);
   }
   return normalizeRemoteDir(env.RITHMIC_REMOTE_IN_FLIGHT);
