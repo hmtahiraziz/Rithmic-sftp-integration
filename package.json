@@ -4,9 +4,9 @@
   "description": "Rithmic SFTP integration MVP with Express and TypeScript",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "start": "tsx src/server.ts",
-    "build": "tsc -p tsconfig.json",
+    "dev": "node api.js && tsx watch src/server.ts",
+    "start": "node api.js && tsx src/server.ts",
+    "build": "node api.js && tsc -p tsconfig.json",
     "test": "vitest run"
   },
   "repository": {
@@ -23,6 +23,7 @@
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "node-fetch": "^3.3.2",
     "pino": "^10.3.1",
     "pino-http": "^11.0.0",
     "ssh2-sftp-client": "^12.1.0",
