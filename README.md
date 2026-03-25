@@ -15,7 +15,8 @@ Minimal Express + TypeScript backend for creating and uploading Rithmic operatio
   - `set_rms_product`
 - Remote folder routing:
   - `add_user` and `add_account` -> `Coperations`
-  - `set_rms_account` and `set_rms_product` -> `in_flight`
+  - `set_rms_account` -> `in_flight`
+  - `set_rms_product` -> `Coperations`
 - File-backed job store at `data/jobs/jobs.json` for persistence across restarts.
 
 ## Setup
